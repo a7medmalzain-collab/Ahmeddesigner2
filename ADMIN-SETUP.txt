@@ -1,0 +1,16 @@
+AHMED DESIGN — Database deployment
+
+1) This project uses Netlify Database via @netlify/database.
+2) Required Netlify environment variables:
+   ADMIN_PASSWORD = choose a strong password for the dashboard
+   ADMIN_SECRET = choose a long random secret (32+ characters)
+3) Database schema is in netlify/database/migrations/001_initial.sql.
+4) The existing frontend calls these endpoints:
+   POST /api/orders
+   GET  /api/services
+   GET  /api/track/:id
+   POST /api/admin/login
+   GET/PATCH/DELETE /api/admin/orders/:id
+   POST/PUT/DELETE /api/admin/services/:id
+5) The original visual design in index.html was kept.
+6) File metadata is stored in order_files. The current browser sends files with the order request; Netlify Functions have a buffered request limit, so very large combined uploads may need a direct-upload storage flow later.
